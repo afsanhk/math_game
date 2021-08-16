@@ -7,9 +7,8 @@ class Game
 
   def initialize
     @game_over = false
-    @players = []
-    @players[0] = Player.new("Player 1")
-    @players[1] = Player.new("Player 2")
+    @player1 = Player.new("Player 1")
+    @player2 = Player.new("Player 2")
     @turn = 0
   end
 
@@ -18,8 +17,16 @@ class Game
     puts "----- NEW GAME -----"
 
     while !game_over do 
-      current_player = @players[@turn % 2]
-      other_player = @players[(@turn + 1) % 2]
+      # Set Current Player
+      if @turn % 2 == 0
+        current_player = @player1
+        other_player = @player2
+      else 
+        current_player = @player2
+        other_player = @player1
+      end
+
+      # Ask a question and validate
       question_answer = Question.get_question_answer
       question = question_answer[0]
       answer = question_answer[1][0] #Only [1] makes answer a one element array [17] instead of 17.
@@ -32,6 +39,7 @@ class Game
         current_player.lives -= 1
         puts "#{current_player.name}: No! Get some Math lessons!"
 
+        # Game Over Condition
         if current_player.lives == 0
           puts "#{other_player.name} wins! Score: #{other_player.lives}/3"
           puts "----- GAME OVER -----"
@@ -41,7 +49,7 @@ class Game
 
       end
 
-      puts "P1: #{@players[0].lives}/3 vs P2: #{@players[1].lives}/3"
+      puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
       @turn += 1
       puts "----- NEW TURN -----"
 
