@@ -15,26 +15,26 @@ Role: Contains player lives data.
 Initialize: With 3 lives. 
 Public Methods: Read/set life. 
 
+Question:
+Role: 
+1) Contains data (numbers from 1 to 20)
+2) Generates new question & answer per turn
+Initialize: range (1..20), it should return a question+answer pair randomly when get_question_answer is invoked.
+Public Methods: get_question_answer
+
+
+
+Game (and Turns combined):
+Role:
+1) Starts and ends game (contains the game loop -- creates 2 new player objects from Class)
+2) Tracks who the current player is (Player 1 or 2)
+3) Starts a new turn for current player
 Turns:
 Role: Ask a question, check answer, give response, update lives.
 1) Outputs a new question for current player
 2) Takes input and compares to sum 
 3) Based on input, outputs a message and current game state (player lives or game over).
-
-Game:
-Role:
-1) Starts and ends game (contains the game loop -- creates 2 new player objects from Class)
-2) Tracks who the current player is (Player 1 or 2)
-3) Starts a new turn for current player
 4) Loops until end. 
 Initialize: Current Player, winner
 Public Methods: get_current_player, get_winner
 
-Question:
-Role: 
-1) Contains data (numbers from 1 to 20)
-2) Generates new question & answer per turn
-
-Initialize: range (1..20), it should return a question+answer pair randomly when get_question_answer is invoked.
-
-Public Methods: get_question_answer
