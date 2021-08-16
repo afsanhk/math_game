@@ -1,5 +1,4 @@
 class Question
-
   def self.get_question_answer 
     output = []
     @num1 = rand(1..20)
@@ -8,7 +7,4 @@ class Question
     output[1] = [@num1 + @num2]
     output
   end
-
 end
-
-puts Question.get_question_answer
