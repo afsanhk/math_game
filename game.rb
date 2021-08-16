@@ -14,6 +14,9 @@ class Game
   end
 
   def start
+
+    puts "----- NEW GAME -----"
+
     while !game_over do 
       current_player = @players[@turn % 2]
       other_player = @players[(@turn + 1) % 2]
